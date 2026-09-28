@@ -2,7 +2,7 @@
 
 A LangChain notebook that turns an industry into a business idea, evaluates its strengths and weaknesses, and produces a structured report.
 
-## What It Covers
+## Content
 
 - Prompt templates and LCEL runnable composition
 - DuckDuckGo market searches with source IDs, URLs, and excerpts
