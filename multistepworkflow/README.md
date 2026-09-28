@@ -5,9 +5,11 @@ A LangChain notebook that turns an industry into a business idea, evaluates its 
 ## What It Covers
 
 - Prompt templates and LCEL runnable composition
-- A logged idea-generation and analysis workflow
-- Structured report output using Pydantic
-- An end-to-end chain and optional in-memory chat history by session
+- DuckDuckGo market searches with source IDs, URLs, and excerpts
+- Risk classification with `RunnableBranch`: HIGH-risk ideas receive conservative due diligence; STANDARD-risk ideas use the regular analysis
+- A structured report that distinguishes source-backed signals from assumptions
+- Three validation experiments with measurable success criteria
+- Optional in-memory conversation history by session
 
 ## Requirements
 
@@ -23,7 +25,7 @@ From PowerShell in the project directory:
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip
-python -m pip install langchain-openai grandalf ipykernel
+python -m pip install langchain-openai ddgs grandalf ipykernel
 ```
 
 Make `OPENAI_API_KEY` available to the notebook kernel before starting it. For example, set it in the PowerShell session that launches VS Code:
@@ -42,8 +44,8 @@ Do not commit API keys or other secrets. If VS Code is already running, restart 
 3. Run the notebook from top to bottom.
 4. Change the industry passed to `e2e_chain.invoke(...)` to explore other sectors.
 
-The workflow makes OpenAI API calls, which may incur usage charges. The ASCII graph display uses `grandalf`; the notebook prints an installation hint if it is unavailable.
+The workflow makes OpenAI API calls, which may incur usage charges. Market research uses DuckDuckGo search results; snippets can be stale or inaccurate, so review the cited pages before relying on a claim. If search fails, treat market claims as assumptions. The ASCII graph display uses `grandalf`; the notebook prints an installation hint if it is unavailable.
 
 ## Memory Demo
 
-The final cells demonstrate `RunnableWithMessageHistory` with in-memory session history. Conversation history is kept only for the current Python process and is not persisted after the kernel stops.
+The session-memory cells demonstrate `RunnableWithMessageHistory` with in-memory history. Conversation history is kept only for the current Python process and is not persisted after the kernel stops.
