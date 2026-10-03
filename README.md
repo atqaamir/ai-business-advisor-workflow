@@ -11,6 +11,8 @@ A LangChain notebook that turns an industry into a business idea, evaluates its 
 - Three validation experiments with measurable success criteria
 - Optional in-memory conversation history by session
 
+- ADD A tool in this!!
+
 ## Requirements
 
 - Python 3.10 or later
